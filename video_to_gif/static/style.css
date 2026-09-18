@@ -1,0 +1,255 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    color: #e8e8ec;
+    background:
+        radial-gradient(1000px 500px at 85% -10%, rgba(34, 197, 94, 0.16), transparent 60%),
+        radial-gradient(800px 400px at -10% 110%, rgba(59, 130, 246, 0.12), transparent 60%),
+        #141419;
+    background-attachment: fixed;
+}
+
+.shell {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 20px 60px;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.hero p {
+    margin: 8px 0 26px;
+    color: #9a9aa3;
+    font-size: 15px;
+}
+
+.card {
+    background: rgba(29, 29, 36, 0.9);
+    border: 1px solid #2b2b34;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.25);
+}
+
+.hidden {
+    display: none;
+}
+
+.dropzone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 38px 16px;
+    border: 2px dashed #3a3a46;
+    border-radius: 14px;
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.2s, background 0.2s;
+    background: rgba(38, 38, 46, 0.35);
+}
+
+.dropzone:hover,
+.dropzone.dragover {
+    border-color: #22c55e;
+    background: rgba(34, 197, 94, 0.08);
+}
+
+.dropzone.selected {
+    border-color: #22c55e;
+    border-style: solid;
+    background: rgba(34, 197, 94, 0.06);
+    padding: 22px 16px;
+}
+
+.dz-icon {
+    font-size: 40px;
+    line-height: 1;
+}
+
+.dz-main {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.dz-sub {
+    font-size: 13px;
+    color: #9a9aa3;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 18px;
+}
+
+@media (max-width: 560px) {
+    .row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #c8c8cf;
+}
+
+.field input,
+.field select {
+    width: 100%;
+    padding: 11px 12px;
+    border-radius: 10px;
+    border: 1px solid #33333d;
+    background: #26262e;
+    color: #e8e8ec;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+}
+
+.field input:focus,
+.field select:focus {
+    border-color: #22c55e;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 11px 18px;
+    margin: 0;
+    text-decoration: none;
+    color: #e8e8ec;
+    background: #26262e;
+    transition: transform 0.08s, filter 0.15s;
+}
+
+.btn:hover {
+    filter: brightness(1.15);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn.primary {
+    width: 100%;
+    margin-top: 18px;
+    padding: 15px;
+    font-size: 16px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: #fff;
+    box-shadow: 0 8px 22px rgba(34, 197, 94, 0.3);
+}
+
+.btn.primary:disabled,
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    filter: none;
+    transform: none;
+}
+
+.btn.accent {
+    background: #22c55e;
+    color: #fff;
+}
+
+.status-card {
+    padding: 18px;
+}
+
+.progress-track {
+    height: 8px;
+    border-radius: 6px;
+    background: #26262e;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #22c55e, #22d3ee);
+    transition: width 0.4s ease;
+}
+
+.status-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #9a9aa3;
+}
+
+.result-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.result-head h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.log {
+    max-height: 160px;
+    overflow-y: auto;
+    background: #101014;
+    border-radius: 12px;
+    padding: 14px;
+    font-family: "Cascadia Mono", "Consolas", monospace;
+    font-size: 13px;
+    line-height: 1.65;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin-bottom: 14px;
+}
+
+.log::-webkit-scrollbar {
+    width: 8px;
+}
+
+.log::-webkit-scrollbar-thumb {
+    background: #33333d;
+    border-radius: 4px;
+}
+
+.log::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.preview {
+    display: block;
+    max-width: 100%;
+    max-height: 420px;
+    margin: 0 auto;
+    border-radius: 12px;
+    background: #101014;
+    border: 1px solid #2b2b34;
+}

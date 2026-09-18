@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Видео в GIF</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="shell">
+        <header class="hero">
+            <h1>Видео в GIF</h1>
+            <p>Преобразование видеофайла в анимированный GIF</p>
+        </header>
+
+        <section class="card">
+            <form id="upload-form">
+                <label class="dropzone" id="dropzone" for="file-input">
+                    <input type="file" id="file-input" hidden accept=".mp4,.mkv,.avi,.webm,.mov,.m4v">
+                    <div class="dz-icon">🎞️</div>
+                    <div class="dz-main">Перетащите видео сюда или нажмите для выбора</div>
+                    <div class="dz-sub">MP4, MKV, AVI, WEBM, MOV</div>
+                </label>
+
+                <div class="row">
+                    <div class="field">
+                        <label for="start">Начало (сек)</label>
+                        <input type="number" id="start" min="0" step="0.1" value="0">
+                    </div>
+                    <div class="field">
+                        <label for="duration">Длительность (сек, 0 = весь)</label>
+                        <input type="number" id="duration" min="0" step="0.1" value="0">
+                    </div>
+                    <div class="field">
+                        <label for="fps">Кадры в секунду</label>
+                        <select id="fps">
+                            <option value="5">5 — маленький файл</option>
+                            <option value="10" selected>10 — средний</option>
+                            <option value="15">15 — плавно</option>
+                            <option value="20">20 — плавнее</option>
+                            <option value="25">25 — полная плавность</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="width">Ширина, px</label>
+                        <select id="width">
+                            <option value="320">320</option>
+                            <option value="480" selected>480</option>
+                            <option value="640">640</option>
+                            <option value="720">720</option>
+                            <option value="auto">Оставить размер</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn primary" id="start-btn">Создать GIF</button>
+            </form>
+        </section>
+
+        <section class="card status-card" id="status-card" hidden>
+            <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+            <div class="status-meta">
+                <span id="status-text">Обработка...</span>
+                <span id="elapsed"></span>
+            </div>
+        </section>
+
+        <section class="card hidden" id="result-card">
+            <div class="result-head">
+                <h2>Готово</h2>
+                <a class="btn accent" id="download-link" href="#">Скачать GIF</a>
+            </div>
+            <div class="log" id="log-box"></div>
+            <img class="preview" id="preview" alt="Превью GIF">
+        </section>
+    </main>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
