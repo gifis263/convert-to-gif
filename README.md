@@ -1,2 +1,2 @@
 # convert-to-gif
-this local app can convert videos to gif files
+this local site can convert videos to gif files
